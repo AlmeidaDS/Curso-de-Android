@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 b.putStringArray("EstiloMusical",list.get(position).getEstiloMusical());
                 b.putString("Idade",list.get(position).getIdade());
                 b.putString("FotodoPerfil",list.get(position).getFotoPerfil());
+                b.putStringArray("Musicas", list.get(position).getListadeMusicas());
                 detailedActivity.putExtras(b);
 
 

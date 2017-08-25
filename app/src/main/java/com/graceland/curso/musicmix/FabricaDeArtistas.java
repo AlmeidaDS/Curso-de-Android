@@ -22,6 +22,7 @@ public class FabricaDeArtistas {
             chrisBrown.setAltura("1,84m");
             chrisBrown.setFotoPerfil("http://ima.ulximg.com/image/405x405/artist/1392667111_de9e68d2eaa029b400b942e2824f1b24.jpg/fa5bba411435bb15128bd0e1a1a0437c/1392667111_chris_brown_billboard_music_awards_2013_red_carpet_01_48.jpg");
             chrisBrown.setDescriçao("Brown aprendeu sozinho a cantar e dançar em uma idade jovem, muitas vezes citando Michael Jackson como inspiração");
+            chrisBrown.setListadeMusicas(new String[]{"http://192.168.137.73/artists/songs/1.mp3"});
 
             Artista drake = new Artista();
             drake.setNome("Drake");
