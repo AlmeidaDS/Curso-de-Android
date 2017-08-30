@@ -12,6 +12,7 @@ public class Artista {
     private String descriçao;
     String [] estiloMusical;
     String [] listadeMusicas;
+    private int songId;
 
     public Artista(){
 
@@ -25,6 +26,14 @@ public class Artista {
         this.descriçao = descriçao;
         this.estiloMusical = estiloMusical;
         this.listadeMusicas = listadeMusicas;
+    }
+
+    public int getSongId() {
+        return songId;
+    }
+
+    public void setSongId(int songId) {
+        this.songId = songId;
     }
 
     public String getNome() {

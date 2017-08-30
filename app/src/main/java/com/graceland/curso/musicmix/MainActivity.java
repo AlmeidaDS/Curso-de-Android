@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Intent detailedActivity = new Intent();
-                //Bundle criado para NOME //
 
+                Intent detailedActivity = new Intent();
+                //Bundle criado para CARACTERISTICAS //
                 Bundle b = new Bundle();
                 b.putString("Nome", list.get(position).getNome());
                 b.putString("Descricao",list.get(position).getDescriçao());
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 b.putString("Idade",list.get(position).getIdade());
                 b.putString("FotodoPerfil",list.get(position).getFotoPerfil());
                 b.putStringArray("Musicas", list.get(position).getListadeMusicas());
+                b.putInt("SongID", list.get(position).getSongId());
                 detailedActivity.putExtras(b);
 
 

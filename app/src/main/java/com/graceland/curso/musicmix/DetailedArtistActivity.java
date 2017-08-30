@@ -31,7 +31,7 @@ public class DetailedArtistActivity extends AppCompatActivity {
         ImageView fotodoperfil =(ImageView) findViewById(R.id.imagem);
         final ImageButton play = (ImageButton) findViewById(R.id.imagePlay);
         play.setBackgroundResource(R.drawable.ic_play_circle_outline_black_36dp);
-
+        
         final Bundle bundle = getIntent().getExtras();
 
         if(bundle.isEmpty()) {
@@ -41,12 +41,16 @@ public class DetailedArtistActivity extends AppCompatActivity {
             play.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    try{
                         Uri uri = Uri.parse("http://192.168.137.73/artists/songs/1.mp3");
-                        mediaPlayer.create(getBaseContext(), uri);
-                        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
-                        Toast.makeText(context, mediaPlayer.getDuration(), Toast.LENGTH_LONG).show();
-                        mediaPlayer.start();
+                        mediaPlayer = MediaPlayer.create(getApplicationContext(), bundle.getInt("SongID"));
+                        mediaPlayer.isPlaying();
                         play.setBackgroundResource(R.drawable.ic_pause_black_36dp);
+
+                    }catch (Exception e){
+                        Toast.makeText(context, "Erro ao reproduzir ficheiro", Toast.LENGTH_SHORT).show();
+                    }
+                        
                 }
             });
 
