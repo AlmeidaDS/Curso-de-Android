@@ -6,6 +6,7 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.GestureDetector;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,6 +21,7 @@ public class DetailedArtistActivity extends AppCompatActivity {
 
     MediaPlayer mediaPlayer = new MediaPlayer();
     Context context =  this;
+    boolean playing = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,27 +33,40 @@ public class DetailedArtistActivity extends AppCompatActivity {
         ImageView fotodoperfil =(ImageView) findViewById(R.id.imagem);
         final ImageButton play = (ImageButton) findViewById(R.id.imagePlay);
         play.setBackgroundResource(R.drawable.ic_play_circle_outline_black_36dp);
-        
+
+
         final Bundle bundle = getIntent().getExtras();
 
         if(bundle.isEmpty()) {
             // DO nothing
         } else {
+            mediaPlayer = MediaPlayer.create(getApplicationContext(), bundle.getInt("SongID"));
 
             play.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     try{
                         Uri uri = Uri.parse("http://192.168.137.73/artists/songs/1.mp3");
-                        mediaPlayer = MediaPlayer.create(getApplicationContext(), bundle.getInt("SongID"));
-                        mediaPlayer.isPlaying();
-                        play.setBackgroundResource(R.drawable.ic_pause_black_36dp);
+
+                        if (playing == true) {
+                            // pause
+                            play.setBackgroundResource(R.drawable.ic_play_circle_outline_black_36dp);
+                            mediaPlayer.pause();
+                            playing = false;
+
+
+                        } else if (playing == false){
+                            // play
+                            mediaPlayer.start();
+                            playing = true;
+                            play.setBackgroundResource(R.drawable.ic_pause_black_36dp);
+                        }
 
                     }catch (Exception e){
                         Toast.makeText(context, "Erro ao reproduzir ficheiro", Toast.LENGTH_SHORT).show();
                     }
-                        
                 }
+
             });
 
 
