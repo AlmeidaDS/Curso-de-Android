@@ -51,7 +51,7 @@ public class FabricaDeArtistas {
 
             Artista hillsong = new Artista();
             hillsong.setNome("Hillsong");
-            hillsong.setDescriçao("Hillsong United é conhecido como um grupo musical gospel formado por jovens da Hillsong Church, na Austrália. Sua música é de louvor e adoração a Deus, com um estilo pop-rock contemporâneo e algumas influências de rock. O grupo já se apresentou em vários países do mundo e atualmente possui como líder Joel Houston (filho dos Pastores Sênior da Hillsong Church em Sydney, Brian Houston e Bobbie Houston e irmão de Benjamin Houston e Laura Houston-Toggs).");
+            hillsong.setDescriçao("Hillsong United é conhecido como um grupo musical gospel formado por jovens da Hillsong Church, na Austrália.");
             hillsong.setEstiloMusical(new String []{"Religiosa"});
             hillsong.setIdade("31 Anos");
             hillsong.setAltura("1,77");
@@ -60,5 +60,7 @@ public class FabricaDeArtistas {
             artistas.add(hillsong);
 
             return artistas;
+         
     }
+
 }

@@ -16,7 +16,6 @@
              android:id="@+id/imagem"
              android:layout_width="100dp"
              android:layout_height="100dp"
-             app:srcCompat="@drawable/chris_brown"
              android:layout_centerVertical="true"
              android:layout_centerHorizontal="true" />
 

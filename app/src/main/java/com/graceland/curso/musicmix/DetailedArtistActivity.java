@@ -28,7 +28,7 @@ public class DetailedArtistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detailed_artist);
         TextView nome = (TextView) findViewById(R.id.nome);
         TextView descricao = (TextView) findViewById(R.id.descricao);
-        TextView estiloMusical = (TextView) findViewById(R.id.estilomusical);
+        TextView estiloMusical = (TextView) findViewById(R.id.estilodemusica);
         TextView idade = (TextView) findViewById(R.id.idade);
         ImageView fotodoperfil =(ImageView) findViewById(R.id.imagem);
         final ImageButton play = (ImageButton) findViewById(R.id.imagePlay);
@@ -72,8 +72,8 @@ public class DetailedArtistActivity extends AppCompatActivity {
 
             Picasso.with(this).load(bundle.getString("FotodoPerfil")).into(fotodoperfil);
             nome.setText(bundle.getString("Nome"));
-            descricao.setText("Descrição: " + bundle.getString("Descricao"));
-            estiloMusical.setText(bundle.getStringArray("EstiloMusical")[0]);
+//            descricao.setText("Descrição: " + bundle.getString("Descricao"));
+//            estiloMusical.setText(bundle.getStringArray("EstiloMusical")[0]);
            idade.setText("Idade : " +bundle.getString("Idade"));
 
         }
