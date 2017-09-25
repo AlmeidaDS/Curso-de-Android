@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -13,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
          setContentView(R.layout.activity_main);
 
         ListView listView = (ListView)findViewById(R.id.lista);
+
 
         final ArrayList<Artista> list = FabricaDeArtistas.gerarArtistas();
         String [] nomesArtistas = new String[list.size()];
@@ -61,6 +65,24 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(detailedActivity);
             }
         });
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
+        int id = item.getItemId();
+        if (id == R.id.acerca){
+            Intent intent = new Intent();
+            intent.setClass(this, aboutActivity.class);
+            startActivity(intent);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+
+        return super.onCreateOptionsMenu(menu);
     }
 }
